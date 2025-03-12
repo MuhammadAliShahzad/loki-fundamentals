@@ -1,17 +1,5 @@
 version: '3'
-
 services:
-  carnivorous-garden:
-    build:
-      context: .
-      dockerfile: Dockerfile
-    ports:
-      - 5005:5005
-    environment:
-      - OTEL_EXPORTER_OTLP_ENDPOINT=otel-collector:4317  # Explicitly set OTLP endpoint
-      - OTEL_EXPORTER_OTLP_LOGS_ENDPOINT=otel-collector:4317  # Logs endpoint
-      - OTEL_EXPORTER_OTLP_PROTOCOL=grpc  # Ensure it uses gRPC
-
   otel-collector:
     image: otel/opentelemetry-collector:latest
     volumes:
